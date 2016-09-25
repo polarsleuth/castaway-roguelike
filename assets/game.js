@@ -8,6 +8,7 @@
 //	*				--	Transfer display.drawText calls to screen.js.
 //	*		0x0004	--	Add display _options with default values.
 //	*				--	All hardcoded values removed from functions.
+//  *       0x0100  --  Added event binding to screens during init() function.
 
 var font = {
     size: 15,
