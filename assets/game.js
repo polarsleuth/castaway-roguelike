@@ -1,22 +1,60 @@
 //	***************************************************************************
-//	*	game.js
-//	*		version 
-//	*			0x0001	--	Transfer window.onload() to game.js.
-//	*			0x0002	--	Create Game{} class and Game.init(), getDisplay(),
-//	*						and switchScreen() functions.
-//	*					--	Transfer display.drawText calls to screen.js.
+//	*	Game (game.js)
+//	***************************************************************************
+//	*	Version 
+//	*		0x0002	--	Transfer window.onload() to game.js.
+//	*		0x0003	--	Create Game{} class and Game.init(), getDisplay(), and
+//	*					switchScreen() functions.
+//	*				--	Transfer display.drawText calls to screen.js.
+//	*		0x0004	--	Add display _options with default values.
+//	*				--	All hardcoded values removed from functions....
 
 
 var Game = {
+    _name: String.fromCharCode(0x03A9) + " m e g a   R o g " + String.fromCharCode(0x028A) + " e",
+    _nameLength: 22,
+	_options: {
+		width: 96,
+		height: 40,
+		fontSize: 15,
+		fontFamily: 'monospace',
+		fontStyle: 'bold',
+		fg: '#FFFF00',
+		bg:	'#000000',
+		spacing: 1,
+		border: 0,
+	},
 	_display: null,
 	_currentScreen: null,
 	
 	init: function() {
-		this._display = new ROT.Display({width: 96, height: 40, fg: "#FFFF00", bg: "#000000"});
+		var game = this;
+		this._display = new ROT.Display(this._options);
 	},
 	
 	getDisplay: function() {
 		return this._display;
+	},
+	
+	getName: function() {
+		return this._name;
+	},
+	
+	getNameLength: function() {
+		// If escaped characters or fromCharCode or fromCodePoint characters
+		// are used in the title, javascript stops being able to detenmine the
+		// length of the title string. While methods do exist to correct
+		// the underlying problems, it is easier to manually count a single,
+		// simple string.
+		return this._nameLength;
+	},
+	
+	getScreenHeight: function() {
+	    return this._options.height;
+	},
+	
+	getScreenWidth: function() {
+	    return this._options.width;
 	},
 	
 	switchScreen: function(screen) {
