@@ -9,16 +9,23 @@
 //	*		0x0004	--	Add display _options with default values.
 //	*				--	All hardcoded values removed from functions....
 
+var font = {
+    size: 15,
+    height: 19,
+    width: 10,
+    family: 'monospace',
+    style: 'bold',
+};
 
 var Game = {
     _name: String.fromCharCode(0x03A9) + " m e g a   R o g " + String.fromCharCode(0x028A) + " e",
     _nameLength: 22,
 	_options: {
-		width: 96,
-		height: 40,
-		fontSize: 15,
-		fontFamily: 'monospace',
-		fontStyle: 'bold',
+		width: Math.floor(screen.width / font.width) + 1,
+		height: Math.floor(screen.height / font.height)+ 1,
+		fontSize: font.size,
+		fontFamily: font.family,
+		fontStyle: font.style,
 		fg: '#FFFF00',
 		bg:	'#000000',
 		spacing: 1,
