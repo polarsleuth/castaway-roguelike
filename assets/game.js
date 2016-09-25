@@ -7,7 +7,7 @@
 //	*					switchScreen() functions.
 //	*				--	Transfer display.drawText calls to screen.js.
 //	*		0x0004	--	Add display _options with default values.
-//	*				--	All hardcoded values removed from functions....
+//	*				--	All hardcoded values removed from functions.
 
 var font = {
     size: 15,
@@ -36,7 +36,20 @@ var Game = {
 	
 	init: function() {
 		var game = this;
+        var bindEventToScreen = function(event) {
+            window.addEventListener(event, function(data) {
+                // When an event is received, send it to the current screen (if
+                // there is one).
+                if (game._currentScreen !== null) {
+                    game._currentScreen.handleInput(event, data);
+                };
+            });
+        };
 		this._display = new ROT.Display(this._options);
+        // Bind basic keyboard inputs; some keys trigger a keydown event while
+        // others trigger a keypress event.
+        bindEventToScreen('keydown');
+        bindEventToScreen('keypress');
 	},
 	
 	getDisplay: function() {
