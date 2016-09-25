@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>My Javascript Roguelike </title>
+    
+    <script src="https://raw.github.com/ondras/rot.js/master/rot.min.js"></script>
+    <script>
+        window.onload = function() {
+            if (!ROT.isSupported()) {
+                alert("The rot.js library isn't supported by your browser.");
+            } else {
+                var display = new ROT.Display({width: 96, height: 40, fg: "#FFFF00", bg: "#000000"});
+                var container = display.getContainer();
+                // Add the container to the HTML page.
+                document.body.appendChild(container);
+                display.drawText(37, 18, "\u{03A9}m e g a   R o g\u{028A}e");
+                display.drawText(37, 20, "Press [Enter] to start!");
+            }
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>
