@@ -11,30 +11,47 @@
 //	*					screen; note our eyes lower the true center which
 //	*					requires a bit of compensation.
 //	*		0x0100	--	Add Main Menu Screen and handleInput() to Title Screen.
+//	*		0x0101	--	Removed hardcoded values from
+//	*					Game.Screen.MenuScreen.render() function.
+//	*				--	Added MenuScreen.handleInput() function - no
+//	*					functionality.
 
 
 Game.Screen = {};
 
 Game.Screen.MenuScreen = {
-		_offsetX: Math.ceil((Game.getScreenWidth() - Game.getNameLength()) / 2),
-		_offsetY: Math.floor(Game.getScreenHeight() / 2),
-		_menu: ["a) New Game", "b) Reuse Seed", "c) Load Prior Game",
-				"d) Morgue File", "e) Credits", "f) Tutorial", "g) Quit"],
-		
-		enter: function() {
-			console.log("enter(): menu screen.");
-		},
-		
-		exit: function() {
-			console.log("exit(): menu screen.")
-		},
-		
-		render: function (display) {
-			display.drawText(this._offsetX, 2, Game.getName());
-			for (i = 0; i < 7; i++) {
-				display.drawText(this._offsetX, this._offsetY - 3 + i, this._menu[i]);
+	_offsetX: Math.ceil((Game.getScreenWidth() - Game.getNameLength()) / 2),
+	_offsetY: Math.floor(Game.getScreenHeight() / 2),
+	_menu: ["[a] New Game", "[b] Reuse Seed", "[c] Load Prior Game",
+			"[d] Morgue File", "[e] Credits", "[f] Tutorial", "[g] Quit"],
+	_menuItems: 7,
+	
+	enter: function() {
+		console.log("enter(): menu screen.");
+	},
+	
+	exit: function() {
+		console.log("exit(): menu screen.")
+	},
+	
+	render: function (display) {
+		display.drawText(this._offsetX, 2, Game.getName());
+		var vOffset = this._offsetY - Math.floor(this._menuItems / 2);
+		var hOffset = this._offsetX + 2;
+		for (i = 0; i < this._menuItems; i++) {
+			display.drawText(hOffset, vOffset + i, this._menu[i]);
+		};
+	},
+	
+	handleInput: function (inputType, inputData) {
+		if (inputType === 'keydown') {
+			switch (inputData.keyCode) {
+				case ROT.VK_A:
+					// nothing here yet....
+					break;
 			};
-		},
+		};
+	}
 };
 
 Game.Screen.TitleScreen = {
