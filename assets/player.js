@@ -10,6 +10,10 @@ Game.Player = {
 	_breed: '...?...',
 	_class: '...?...',
 	_level: 0,
+	_stun: 20,
+	_body: 10,
+	_end: 20,
+	_mana: 10,
 	
 	getName: function () {
 		return this._name;
@@ -21,5 +25,41 @@ Game.Player = {
 	
 	getClassString: function () {
 		return (this._class + " +" + this._level);
+	},
+	
+	getHealthBar: function () {
+		var health = this._body;
+		var bar = "%b{red}";
+		for (i = 0; i < health; i++) {
+			bar = bar + "__";
+		};
+		return bar;
+	},
+	
+	getStunBar: function () {
+		var KO = this._stun;
+		var bar = "%b{yellow}";
+		for (i = 0; i < KO; i++) {
+			bar = bar + "_";
+		};
+		return bar;
+	},
+	
+	getFatigueBar: function () {
+		var end = this._end;
+		var bar = "%b{green}";
+		for (i = 0; i < end; i++) {
+			bar = bar + "_";
+		};
+		return bar;
+	},
+	
+	getManaBar: function () {
+		var mana = this._mana;
+		var bar = "%b{blue}";
+		for (i = 0; i < mana; i++) {
+			bar = bar + "__";
+		};
+		return bar;
 	},
 };
