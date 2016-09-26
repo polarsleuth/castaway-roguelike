@@ -29,6 +29,7 @@ Roadmap:
 		0x00.0C20		-- Shields
 		0x00.0C30		-- Weapons
 		0x00.0C40		-- Food, Water, and Consumables
+		0x00.0C50		-- Item Appearance and Identification
 		0x00.0D00 -- Monsters
 		0x00.0D10		-- Stationary Monsters
 							--	Plants, Fungi, and Molds
