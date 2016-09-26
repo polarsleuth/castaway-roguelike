@@ -36,6 +36,9 @@ Roadmap:
 							--	Insects, Vermin, and Oozes
 		0x00.0D30		-- Aggressive Monsters
 							--	Animals
+		0x00.0D40		-- Smart Monsters
+							-- Kobolds, Goblins, Orcs, et al.
+							-- Agendas, Jobs, and other AI tricks
 		0x00.0E00 -- Combat and Messages
 		0x00.0F00 -- Rest, Recovery, and Healing
 		0x00.1000 -- Experience and Character Advancement
@@ -57,5 +60,12 @@ Roadmap:
 		0x00.1700 -- Casting Spells
 		0x00.1800 -- Spell List
 		0x00.1900 -- Doors: Unlocked, Locked, Keys, Opening, and Closing
-		
-		
+		0x00.1A00 -- Traps
+		0x00.1B00 -- Search, Examine, and Help
+		0x00.1C00 -- Merchants, Interactive Computer Characters
+		0x00.1D00 -- Topics: Inventory, Agenda, Nodes, Trees, and other tricks
+		0x00.1E00 -- Magic Research: Scribing, Studying, and Experimenting
+		0x00.1F00 -- Monster Magic
+		0x00.2000 -- Morgue
+		0x00.2100 -- Winning & Losing
+		0x00.2200 -- Instructions & Help
