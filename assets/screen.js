@@ -47,7 +47,7 @@ Game.Screen.MenuScreen = {
 		if (inputType === 'keydown') {
 			switch (inputData.keyCode) {
 				case ROT.VK_A:
-					// nothing here yet....
+					Game.switchScreen(Game.Screen.PlayScreen);
 					break;
 			};
 		};
