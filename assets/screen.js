@@ -66,10 +66,10 @@ Game.Screen.PlayScreen = {
 	},
 	
 	render: function (display) {
-		display.drawText(this._offsetX, 2, "HEALTH:   " + Game.Player.getHealthBar());
-		display.drawText(this._offsetX, 3, "K.O.:     " + Game.Player.getStunBar());
-		display.drawText(this._offsetX, 4, "Fatigued: " + Game.Player.getFatigueBar());
-		display.drawText(this._offsetX, 5, "Mana:     " + Game.Player.getManaBar());
+		display.drawText(this._offsetX, 2, "HEALTH:  " + Game.Player.getHealthBar());
+		display.drawText(this._offsetX, 3, "K.O.:    " + Game.Player.getStunBar());
+		display.drawText(this._offsetX, 4, "Fatigue: " + Game.Player.getFatigueBar());
+		display.drawText(this._offsetX, 5, "Mana:    " + Game.Player.getManaBar());
 		display.drawText(this._offsetX, 7, "Name:  " + Game.Player.getName());
 		display.drawText(this._offsetX, 8, "Race:  " + Game.Player.getRaceString());
 		display.drawText(this._offsetX, 9, "Class: " + Game.Player.getClassString());
