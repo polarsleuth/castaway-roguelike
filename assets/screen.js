@@ -55,7 +55,7 @@ Game.Screen.MenuScreen = {
 };
 
 Game.Screen.PlayScreen = {
-	_offsetX: Math.floor(Game.getScreenWidth / 2) + 1,
+	_offsetX: 2 * Math.floor(Game.getScreenWidth() / 3) + 1,
 	_atName: '...?...',
 	_atRace: '...?...',
 	_atBreed: '...?...',
@@ -76,6 +76,10 @@ Game.Screen.PlayScreen = {
 			this._atRace);
 		display.drawText(this._offsetX, 4, "Class: " + this._atClass + " +" +
 			this._atLevel);
+	},
+	
+	handleInput: function (inputType, inputData) {
+		// nothing yet
 	}
 };
 
