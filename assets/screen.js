@@ -54,6 +54,31 @@ Game.Screen.MenuScreen = {
 	}
 };
 
+Game.Screen.PlayScreen = {
+	_offsetX: Math.floor(Game.getScreenWidth / 2) + 1,
+	_atName: '...?...',
+	_atRace: '...?...',
+	_atBreed: '...?...',
+	_atClass: '...?...',
+	_atLevel: 0,
+	
+	enter: function () {
+		console.log("enter(): play screen.");
+	},
+	
+	exit: function () {
+		console.log("exit(): play screen.");
+	},
+	
+	render: function (display) {
+		display.drawText(this._offsetX, 2, "Name:  " + this._atName);
+		display.drawText(this._offsetX, 3, "Race:  " + this._atBreed + " " +
+			this._atRace);
+		display.drawText(this._offsetX, 4, "Class: " + this._atClass + " +" +
+			this._atLevel);
+	}
+};
+
 Game.Screen.TitleScreen = {
     _actionString: "Press [Enter] to start!",
     // center the _actionString on the screen
