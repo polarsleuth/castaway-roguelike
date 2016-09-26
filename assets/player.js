@@ -2,7 +2,11 @@
 //	*	Game.Player (player.js)
 //	***************************************************************************
 //	*	Version
-//	*		0x00.0301	--	Moved the Character information out of Game.Screen{} class.
+//	*		0x00.0301	--	Moved the Character information out of
+//							Game.Screen{} class.
+//	*		0x00.0302	--	Added get...() Functions and status bar functions.
+//	*		0x00.0303	--	Provided for attributes to have current & max
+//	*						values.
 
 Game.Player = {
 	_name: '...?...',
@@ -10,10 +14,10 @@ Game.Player = {
 	_breed: '...?...',
 	_class: '...?...',
 	_level: 0,
-	_stun: 20,
-	_body: 10,
-	_end: 20,
-	_mana: 10,
+	_stun: {curr: 20, max: 20},
+	_body: {curr: 10, max: 10},
+	_end:  {curr: 20, max: 20},
+	_mana: {curr: 10, max: 10},
 	
 	getName: function () {
 		return this._name;
@@ -28,7 +32,7 @@ Game.Player = {
 	},
 	
 	getHealthBar: function () {
-		var health = this._body;
+		var health = this._body.curr;
 		var bar = "%b{red}";
 		for (i = 0; i < health; i++) {
 			bar = bar + "__";
@@ -37,7 +41,7 @@ Game.Player = {
 	},
 	
 	getStunBar: function () {
-		var KO = this._stun;
+		var KO = this._stun.curr;
 		var bar = "%b{yellow}";
 		for (i = 0; i < KO; i++) {
 			bar = bar + "_";
@@ -46,7 +50,7 @@ Game.Player = {
 	},
 	
 	getFatigueBar: function () {
-		var end = this._end;
+		var end = this._end.curr;
 		var bar = "%b{green}";
 		for (i = 0; i < end; i++) {
 			bar = bar + "_";
@@ -55,7 +59,7 @@ Game.Player = {
 	},
 	
 	getManaBar: function () {
-		var mana = this._mana;
+		var mana = this._mana.curr;
 		var bar = "%b{blue}";
 		for (i = 0; i < mana; i++) {
 			bar = bar + "__";
