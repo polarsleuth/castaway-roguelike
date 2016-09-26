@@ -56,11 +56,6 @@ Game.Screen.MenuScreen = {
 
 Game.Screen.PlayScreen = {
 	_offsetX: 2 * Math.floor(Game.getScreenWidth() / 3) + 1,
-	_atName: '...?...',
-	_atRace: '...?...',
-	_atBreed: '...?...',
-	_atClass: '...?...',
-	_atLevel: 0,
 	
 	enter: function () {
 		console.log("enter(): play screen.");
@@ -71,11 +66,13 @@ Game.Screen.PlayScreen = {
 	},
 	
 	render: function (display) {
-		display.drawText(this._offsetX, 2, "Name:  " + this._atName);
-		display.drawText(this._offsetX, 3, "Race:  " + this._atBreed + " " +
-			this._atRace);
-		display.drawText(this._offsetX, 4, "Class: " + this._atClass + " +" +
-			this._atLevel);
+		display.drawText(this._offsetX, 2, "HEALTH:   " + Game.Player.getHealthBar());
+		display.drawText(this._offsetX, 3, "K.O.:     " + Game.Player.getStunBar());
+		display.drawText(this._offsetX, 4, "Fatigued: " + Game.Player.getFatigueBar());
+		display.drawText(this._offsetX, 5, "Mana:     " + Game.Player.getManaBar());
+		display.drawText(this._offsetX, 7, "Name:  " + Game.Player.getName());
+		display.drawText(this._offsetX, 8, "Race:  " + Game.Player.getRaceString());
+		display.drawText(this._offsetX, 9, "Class: " + Game.Player.getClassString());
 	},
 	
 	handleInput: function (inputType, inputData) {
