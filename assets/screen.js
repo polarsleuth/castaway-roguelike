@@ -55,7 +55,7 @@ Game.Screen.MenuScreen = {
 };
 
 Game.Screen.PlayScreen = {
-	_offsetX: 2 * Math.floor(Game.getScreenWidth() / 3) + 1,
+	_offsetX: Game.getScreenWidth() - 35,
 	
 	enter: function () {
 		console.log("enter(): play screen.");
