@@ -54,6 +54,13 @@ Game.Player = {
 	_swim:  {curr: 2, max: 2, maxima: 5},
 	_leap:  {curr: 2, max: 2, maxima: 5},
 	
+	init: function () {
+		this._body = {curr: ROT.RNG.getUniformInt(1, 10), max: 10, maxima: 20};
+		this._stun = {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
+		this._end = this._stun;
+		this._mana = {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
+	},
+	
 	getName: function () {
 		return this._name;
 	},

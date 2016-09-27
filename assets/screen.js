@@ -59,6 +59,7 @@ Game.Screen.PlayScreen = {
 	
 	enter: function () {
 		console.log("enter(): play screen.");
+		Game.Player.init();
 	},
 	
 	exit: function () {
