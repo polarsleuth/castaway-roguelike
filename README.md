@@ -7,9 +7,10 @@ Roadmap:
 		0x00.0100 -- Main Menu Screen
 		0x00.0200 -- Play Screen
 		0x00.0300 -- Character:
-		0x00.0310		-- Generation
-		0x00.0320		-- Classes
-		0x00.0330		-- Races
+		0x00.0310 		-- New Game Screen (to handle character Generation)
+		0x00.0320		-- Generation
+		0x00.0330		-- Classes
+		0x00.0340		-- Races
 		0x00.0400 -- Introduction Screen
 		0x00.0500 -- Saving & Reloading Game
 		0x00.0600 -- Dungeon Building: Seeding & Determinism

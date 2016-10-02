@@ -15,6 +15,8 @@
 //	*					Game.Screen.MenuScreen.render() function.
 //	*				--	Added MenuScreen.handleInput() function - no
 //	*					functionality.
+//	*		0x0310	--	Added New Game Screen skeleton to initialize
+//	*					Game.Player{} for a new game.
 
 
 Game.Screen = {};
@@ -54,12 +56,30 @@ Game.Screen.MenuScreen = {
 	}
 };
 
+Game.Screen.NewGame = {
+	enter: function () {
+		console.log("enter(): new game screen.");
+		Game.Player.init();
+	},
+	
+	exit: function () {
+		console.log("exit(): new game screen.");
+	},
+	
+	render: function (display) {
+		
+	},
+	
+	handleInput: function (inputType, inputData) {
+		
+	}
+};
+
 Game.Screen.PlayScreen = {
 	_offsetX: Game.getScreenWidth() - 35,
 	
 	enter: function () {
 		console.log("enter(): play screen.");
-		Game.Player.init();
 	},
 	
 	exit: function () {
