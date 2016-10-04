@@ -24,45 +24,23 @@
 //	*						monsters and NPCs
 
 Game.Player = {
-	properties: {},
-	_name: '...?...',
-	_race: '...?...',
-	_breed: '...?...',
-	_class: '...?...',
-	_level: 0,
 	
-	_body: {},
-	_stun: {},
-	_end:  {},
-	_mana: {},
-	
-	_str: {},
-	_dex: {},
-	_con: {},
-	_int: {},
-	_ego: {},
-	_pre: {},
-	
-	_ocv: {},
-	_dcv: {},
-	_pd:  {},
-	_ed:  {},
-	
-	_rec: {},
-	
-	_speed: {},
-	_run:   {},
-	_swim:  {},
-	_leap:  {},
-	
-	init: function (properties) {
-		this.properties = properties || {};
+	init: function () {
 		
-		this._body = properties['body'] || {curr: ROT.RNG.getUniformInt(1, 10), max: 10, maxima: 20};
-		this._stun = properties['stun'] || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
-		this._end = properties['end'] || this._stun;
-		this._mana = properties['mana'] || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
+		var player = Game.Class.Barbarian.Warrior.init();
 		
+		this._name  = player._name;
+		this._race  = player._race;
+		this._breed = player._breed;
+		this._class = player._class;
+		this._level = player._level;
+		
+		this._body = player._body || {curr: ROT.RNG.getUniformInt(1, 10), max: 10, maxima: 20};
+		this._stun = player._stun || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
+		this._end = player._end || this._stun;
+		this._mana = player._mana || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
+		
+		/*
 		this._str = properties['strength'] || {curr: 10, max: 10, maxima: 10};
 		this._dex = properties['dexterity'] || {curr: 10, max: 10, maxima: 10};
 		this._con = properties['constitution'] || {curr: 10, max: 10, maxima: 10};
@@ -78,6 +56,7 @@ Game.Player = {
 		this._run = properties['running'] || {curr: 6, max: 6, maxima: 10};
 		this._swim = properties['swimming'] || {curr: 0, max: 2, maxima: 5};
 		this._leap = properties['leaping'] || {curr: 2, max: 2, maxima: 5};
+		*/
 	},
 	
 	getName: function () {
