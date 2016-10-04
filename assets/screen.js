@@ -56,10 +56,30 @@ Game.Screen.MenuScreen = {
 	}
 };
 
-Game.Screen.NewGame = {
+Game.Screen.NewGameScreen = {
 	enter: function () {
 		console.log("enter(): new game screen.");
-		Game.Player.init();
+		var player = Game.Player.init({
+			strength: {curr: 18, max:18, maxima: 28},
+			dexterity: {curr: 11, max: 11, maxima: 21},
+			constitution: {curr: 13, max: 13, maxima: 23},
+			intelligence: {curr: 10, max: 10, maxima: 20},
+			ego: {curr: 10, max: 10, maxima: 20},
+			presense: {curr: 15, max: 25, maxima: 25},
+			ocv: {curr: 4, max: 4, maxima: 9},
+			dcv: {curr: 4, max: 4, maxima: 9},
+			pd: {curr: 4, max: 4, maxima: 10},
+			ed: {curr: 3, max: 3, maxima: 9},
+			recovery: {curr: 7, max: 7, maxima: 13},
+			speed: {curr: 3, max: 3, maxima: 5},
+			running: {curr: 8, max: 8, maxima: 12},
+			leaping: {curr: 5, max: 5, maxima: 8},
+			swimming: {curr: 0, max: 3, maxima: 6},
+			body: {curr: 3, max: 13, maxima: 23},
+			stun: {curr: 7, max: 29, maxima: 59},
+			endurance: {curr: 7, max: 26, maxima: 56},
+			mana: {curr: 1, max: 20, maxima: 50}
+		});
 	},
 	
 	exit: function () {
@@ -80,6 +100,29 @@ Game.Screen.PlayScreen = {
 	
 	enter: function () {
 		console.log("enter(): play screen.");
+		Game.Player.init({
+
+			body: {curr: 3, max: 13, maxima: 23},
+			stun: {curr: 7, max: 29, maxima: 59},
+			endurance: {curr: 7, max: 26, maxima: 56},
+			mana: {curr: 1, max: 20, maxima: 50},
+			
+			strength: {curr: 18, max:18, maxima: 28},
+			dexterity: {curr: 11, max: 11, maxima: 21},
+			constitution: {curr: 13, max: 13, maxima: 23},
+			intelligence: {curr: 10, max: 10, maxima: 20},
+			ego: {curr: 10, max: 10, maxima: 20},
+			presense: {curr: 15, max: 25, maxima: 25},
+			ocv: {curr: 4, max: 4, maxima: 9},
+			dcv: {curr: 4, max: 4, maxima: 9},
+			pd: {curr: 4, max: 4, maxima: 10},
+			ed: {curr: 3, max: 3, maxima: 9},
+			recovery: {curr: 7, max: 7, maxima: 13},
+			speed: {curr: 3, max: 3, maxima: 5},
+			running: {curr: 8, max: 8, maxima: 12},
+			leaping: {curr: 5, max: 5, maxima: 8},
+			swimming: {curr: 0, max: 3, maxima: 6}
+		});
 	},
 	
 	exit: function () {
@@ -87,6 +130,7 @@ Game.Screen.PlayScreen = {
 	},
 	
 	render: function (display) {
+		console.log("render(): play screen.");
 		display.drawText(this._offsetX, 2, "HEALTH:  " + Game.Player.getHealthBar());
 		display.drawText(this._offsetX, 3, "K.O.:    " + Game.Player.getStunBar());
 		display.drawText(this._offsetX, 4, "Fatigue: " + Game.Player.getFatigueBar());
