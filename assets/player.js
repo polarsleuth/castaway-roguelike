@@ -23,6 +23,12 @@
 //	*					--	separate out actor{} class and functions for future
 //	*						monsters and NPCs
 
+Game.Attribute = {
+	curr:   10,
+	max:    10,
+	maxima: 20
+};
+
 Game.Player = {
 	
 	init: function () {
@@ -40,12 +46,12 @@ Game.Player = {
 		this._end  = player._end  || this._stun;
 		this._mana = player._mana || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
 		
-		this._str = player._str || {curr: 10, max: 10, maxima: 20};
-		this._dex = player._dex || {curr: 10, max: 10, maxima: 20};
-		this._con = player._con || {curr: 10, max: 10, maxima: 20};
-		this._int = player._int || {curr: 10, max: 10, maxima: 20};
-		this._ego = player._ego || {curr: 10, max: 10, maxima: 20};
-		this._pre = player._pre || {curr: 10, max: 10, maxima: 20};
+		this._str = player._str || Game.Attribute;
+		this._dex = player._dex || Game.Attribute;
+		this._con = player._con || Game.Attribute;
+		this._int = player._int || Game.Attribute;
+		this._ego = player._ego || Game.Attribute;
+		this._pre = player._pre || Game.Attribute;
 		
 		this._spd = player._spd || {curr: 2, max: 2, maxima:  4};
 		this._ocv = player._ocv || {curr: 3, max: 3, maxima:  8};
@@ -60,15 +66,32 @@ Game.Player = {
 	},
 	
 	getName: function () {
-		return this._name;
+		if (this._name.isKnown) {
+			return this._name.desc;
+		} else {
+			return "...?...";
+		};
 	},
 	
 	getRaceString: function () {
-		return (this._breed + " " + this._race);
+		if (this._breed.isKnown) {
+			if (this._race.isKnown) {
+				return (this._breed.desc + " " + this._race.desc);
+			}
+			return (this._breed.desc + " ...?...");
+		} else if (this._race.isKnown) {
+			return ("...?... " + this._race.desc);
+		} else {
+			return "...?... ...?...";
+		};
 	},
 	
 	getClassString: function () {
-		return (this._class + " +" + this._level);
+		if (this._class.isKnown) {
+			return (this._class.desc + " +" + this._level);
+		} else {
+			return ("...?... (...?...) +" + this._level);
+		};
 	},
 	
 	getHealthBar: function () {

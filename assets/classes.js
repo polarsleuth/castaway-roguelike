@@ -10,16 +10,16 @@ Game.Class.Barbarian.Destroyer = {};
 Game.Class.Barbarian.SeaReaver = {};
 
 Game.Class.Barbarian.Warrior = {
-	name: {id: "Barbarian (Warrior)", isKnown: false},
+	name: {desc: "Barbarian (Warrior)", isKnown: false},
 	
 	init: function () {
 		var player = {};
 		var temp = 0;
 		
-		player._name = '...?...';
-		player._race = '...?...';
-		player._breed = '...?...';
-		player._class = '...?... (...?...)';
+		player._name = {desc: 'John Doe', isKnown: false};
+		player._race = {desc: 'Human', isKnown: false};
+		player._breed = {desc: 'Tundra', isKnown: false};
+		player._class = {desc: 'Barbarian (Warrior)', isKnown: false};
 		player._level = 0;
 		
 		temp = ROT.RNG.getUniformInt(1, 6);
@@ -32,8 +32,6 @@ Game.Class.Barbarian.Warrior = {
 		player._str = {curr: 18, max: 18, maxima: 28, isKnown: false, adjective: "mighty strong"};
 		player._dex = {curr: 11, max: 11, maxima: 21, isKnown: false, adjective: "somewhat agile"};
 		player._con = {curr: 13, max: 13, maxima: 23, isKnown: false, adjective: "solid stamina"};
-		player._int = {curr: 10, max: 10, maxima: 20, isKnown: false, adjective: "somewhat intelligent"};
-		player._ego = {curr: 10, max: 10, maxima: 20, isKnown: false, adjective: "somewhat strong willed"};
 		player._pre = {curr: 15, max: 25, maxima: 25, isKnown: false, adjective: "intense presense"};
 		player._ocv = {curr:  4, max:  4, maxima:  9, isKnown: false, adjective: "somewhat skilled in bashing"};
 		player._dcv = {curr:  6, max:  6, maxima: 11, isKnown: false, adjective: "very slippery in combat"};
