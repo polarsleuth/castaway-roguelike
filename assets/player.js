@@ -37,26 +37,26 @@ Game.Player = {
 		
 		this._body = player._body || {curr: ROT.RNG.getUniformInt(1, 10), max: 10, maxima: 20};
 		this._stun = player._stun || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
-		this._end = player._end || this._stun;
+		this._end  = player._end  || this._stun;
 		this._mana = player._mana || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
 		
-		/*
-		this._str = properties['strength'] || {curr: 10, max: 10, maxima: 10};
-		this._dex = properties['dexterity'] || {curr: 10, max: 10, maxima: 10};
-		this._con = properties['constitution'] || {curr: 10, max: 10, maxima: 10};
-		this._int = properties['intelligence'] || {curr: 10, max: 10, maxima: 10};
-		this._ego = properties['ego'] || {curr: 10, max: 10, maxima: 10};
-		this._pre = properties['presense'] || {curr: 10, max: 10, maxima: 10};
-		this._ocv = properties['ocv'] || {curr: 3, max: 3, maxima: 8};
-		this._dcv = properties['dcv'] || {curr: 3, max: 3, maxima: 8};
-		this._pd = properties['pd']  || {curr: 2, max: 2, maxima: 8};
-		this._ed = properties['ed']  || {curr: 2, max: 2, maxima: 8};
-		this._rec = properties['rec'] || {curr: 4, max: 4, maxima: 10};
-		this._speed = properties['speed'] || {curr: 2, max: 2, maxima: 4};
-		this._run = properties['running'] || {curr: 6, max: 6, maxima: 10};
-		this._swim = properties['swimming'] || {curr: 0, max: 2, maxima: 5};
-		this._leap = properties['leaping'] || {curr: 2, max: 2, maxima: 5};
-		*/
+		this._str = player._str || {curr: 10, max: 10, maxima: 20};
+		this._dex = player._dex || {curr: 10, max: 10, maxima: 20};
+		this._con = player._con || {curr: 10, max: 10, maxima: 20};
+		this._int = player._int || {curr: 10, max: 10, maxima: 20};
+		this._ego = player._ego || {curr: 10, max: 10, maxima: 20};
+		this._pre = player._pre || {curr: 10, max: 10, maxima: 20};
+		
+		this._spd = player._spd || {curr: 2, max: 2, maxima:  4};
+		this._ocv = player._ocv || {curr: 3, max: 3, maxima:  8};
+		this._dcv = player._dcv || {curr: 3, max: 3, maxima:  8};
+		this._pd  = player._pd  || {curr: 2, max: 2, maxima:  8};
+		this._ed  = player._ed  || {curr: 2, max: 2, maxima:  8};
+		this._rec = player._rec || {curr: 4, max: 4, maxima: 10};
+		
+		this._run = player._run  || {curr: 6, max: 6, maxima: 10};
+		this._swm = player._swim || {curr: 0, max: 2, maxima:  5};
+		this._jmp = player._leap || {curr: 2, max: 2, maxima:  5};
 	},
 	
 	getName: function () {

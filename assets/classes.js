@@ -4,6 +4,11 @@ Game.Class = {};
 
 Game.Class.Barbarian = {};
 
+Game.Class.Barbarian.Beserker = {};
+Game.Class.Barbarian.Brute = {};
+Game.Class.Barbarian.Destroyer = {};
+Game.Class.Barbarian.SeaReaver = {};
+
 Game.Class.Barbarian.Warrior = {
 	name: {id: "Barbarian (Warrior)", isKnown: false},
 	
