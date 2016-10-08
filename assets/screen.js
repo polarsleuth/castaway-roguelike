@@ -16,7 +16,8 @@
 //	*				--	Added MenuScreen.handleInput() function - no
 //	*					functionality.
 //	*		0x0310	--	Added New Game Screen skeleton to initialize
-//	*					Game.Player{} for a new game.
+//	*					Game.Player{} for a new game. Provides text description
+//	*					of waking situation.
 
 
 Game.Screen = {};
@@ -100,6 +101,8 @@ Game.Screen.PlayScreen = {
 		display.drawText(this._offsetX, 7, "Name:  " + Game.Player.getName());
 		display.drawText(this._offsetX, 8, "Race:  " + Game.Player.getRaceString());
 		display.drawText(this._offsetX, 9, "Class: " + Game.Player.getClassString());
+		
+		display.drawText(this._offsetX, 11, "Strength: " + Game.Player.getStrength());
 	},
 	
 	handleInput: function (inputType, inputData) {

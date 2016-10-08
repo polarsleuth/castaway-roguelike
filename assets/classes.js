@@ -24,7 +24,8 @@ Game.Class.Barbarian.Warrior = {
 		
 		temp = ROT.RNG.getUniformInt(1, 6);
 		
-		player._body = {curr: ROT.RNG.getUniformInt(1, 6), max: 13, maxima: 23};
+		player._body = Game.Attribute.Base;
+		player._body.curr = ROT.RNG.getUniformInt(1, 6); player._body.max = 13; player._body.maxima = 23;
 		player._stun = {curr: temp, max: 29, maxima: 59};
 		player._end  = {curr: temp, max: 26, maxima: 56};
 		player._mana = {curr: ROT.RNG.getUniformInt(1, 10), max: 20, maxima: 50};

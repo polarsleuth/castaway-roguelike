@@ -23,11 +23,45 @@
 //	*					--	separate out actor{} class and functions for future
 //	*						monsters and NPCs
 
-Game.Attribute = {
-	curr:   10,
-	max:    10,
-	maxima: 20
+Game.Attribute = {};
+
+Game.Attribute.Base = {
+	curr:    10,
+	max:     10,
+	avg:      8,
+	skilled: 11,
+	very:    14,
+	extreme: 17,
+	incred:  20,
+	legend:  23,
+	maxima:  20
 };
+
+Game.Attribute.Combat = {
+	curr:     3,
+	max:      3,
+	avg:      2,
+	skilled:  4,
+	very:     5,
+	extreme:  7,
+	incred:   8,
+	legend:  10,
+	maxima:   8
+};
+
+Game.Attribute.Def = {
+	curr:     2,
+	max:      2,
+	avg:      2,
+	skilled:  4,
+	very:     6,
+	extreme:  7,
+	incred:   9,
+	legend:  11,
+	maxima:   8
+};
+
+
 
 Game.Player = {
 	
@@ -46,18 +80,18 @@ Game.Player = {
 		this._end  = player._end  || this._stun;
 		this._mana = player._mana || {curr: ROT.RNG.getUniformInt(1, 20), max: 20, maxima: 50};
 		
-		this._str = player._str || Game.Attribute;
-		this._dex = player._dex || Game.Attribute;
-		this._con = player._con || Game.Attribute;
-		this._int = player._int || Game.Attribute;
-		this._ego = player._ego || Game.Attribute;
-		this._pre = player._pre || Game.Attribute;
+		this._str = player._str || Game.Attribute.Base;
+		this._dex = player._dex || Game.Attribute.Base;
+		this._con = player._con || Game.Attribute.Base;
+		this._int = player._int || Game.Attribute.Base;
+		this._ego = player._ego || Game.Attribute.Base;
+		this._pre = player._pre || Game.Attribute.Base;
 		
 		this._spd = player._spd || {curr: 2, max: 2, maxima:  4};
-		this._ocv = player._ocv || {curr: 3, max: 3, maxima:  8};
-		this._dcv = player._dcv || {curr: 3, max: 3, maxima:  8};
-		this._pd  = player._pd  || {curr: 2, max: 2, maxima:  8};
-		this._ed  = player._ed  || {curr: 2, max: 2, maxima:  8};
+		this._ocv = player._ocv || Game.Attribute.Combat;
+		this._dcv = player._dcv || Game.Attribute.Combat;
+		this._pd  = player._pd  || Game.Attribute.Def;
+		this._ed  = player._ed  || Game.Attribute.Def;
 		this._rec = player._rec || {curr: 4, max: 4, maxima: 10};
 		
 		this._run = player._run  || {curr: 6, max: 6, maxima: 10};
@@ -68,9 +102,8 @@ Game.Player = {
 	getName: function () {
 		if (this._name.isKnown) {
 			return this._name.desc;
-		} else {
-			return "...?...";
 		};
+		return "...?...";
 	},
 	
 	getRaceString: function () {
@@ -168,5 +201,9 @@ Game.Player = {
 		};
 		bar = bar + "%b{}" + mana + "/" + this._mana.max;
 		return bar;
+	},
+
+	getStrength: function () {
+		return this._str.curr;
 	},
 };
